@@ -60,6 +60,14 @@ The following courses formed the core academic basis for this project:
 
 These references are cited to establish theoretical grounding and standard practice. All implementation choices, assumptions, and interpretations in the notebook represent an academic exercise and the my independent computational translation of the methodology.
 
+#### Supplementary notes and background
+
+Conceptual notes and supporting material related to **chemical engineering thermodynamics, phase equilibria, and separation processes** are maintained separately in the following repository:
+
+* [https://github.com/TheAnveshak/Anvesiki/tree/main/Chemical_Engineering_101/ThermoDynamics](https://github.com/TheAnveshak/Anvesiki/tree/main/Chemical_Engineering_101/ThermoDynamics)
+
+These notes reflect personal academic understanding developed through coursework and self-study. They are provided for context and learning support only and should not be interpreted as complete design guidelines or authoritative references.
+
 ---
 ## For Usage
 
@@ -180,3 +188,7 @@ The notebook is intentionally linear and verbose in logic, even where it could b
 
 This work is intended for **academic learning and demonstration**.
 The notebook reflects how standard design methods can be implemented computationally and does not claim completeness, industrial readiness, or authoritative correctness beyond its educational scope.
+
+---
+
+
