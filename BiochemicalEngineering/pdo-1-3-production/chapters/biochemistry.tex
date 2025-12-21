@@ -1,0 +1,32 @@
+\chapter{Biochemistry}
+
+\section{Metabolic Pathway Overview}
+The engineered \textit{E.~coli} pathway integrates native glycolytic intermediates with heterologous genes to produce PDO. 
+The simplified route from glucose is as follows:
+\begin{enumerate}
+    \item Glucose $\rightarrow$ Dihydroxyacetone phosphate (DHAP)
+    \item DHAP $\rightarrow$ Glycerol (via \textit{S.~cerevisiae} genes)
+    \item Glycerol $\rightarrow$ 3-Hydroxypropionaldehyde (via \textit{K.~pneumoniae} \textit{dhaB} operon)
+    \item 3-Hydroxypropionaldehyde $\rightarrow$ 1,3-Propanediol (via native \textit{E.~coli} dehydrogenase)\cite{markemptagewilmingtondeus;PROCESSBIOLOGICALPRODUCTION2003}
+\end{enumerate}
+
+\section{Key Enzymes and Cofactors}
+\begin{itemize}
+    \item \textbf{Glycerol dehydratase (DhaB)} — B$_{12}$-dependent enzyme catalyzing glycerol dehydration.\cite{markemptagewilmingtondeus;PROCESSBIOLOGICALPRODUCTION2003}
+    \item \textbf{1,3-PDO dehydrogenase (DhaT)} — NADH-dependent reduction of 3-HPA to PDO.
+    \item \textbf{Cofactors:} NADH/NAD$^+$ redox balance critically affects flux toward PDO.\cite{tangMicrobialConversionGlycerol2009}
+\end{itemize}
+
+\section{Engineering Considerations}
+\subsection{Cofactor Balance}
+Maintaining NADH regeneration through glycolysis and side pathways is essential. Co-utilization of glucose as a reducing equivalent donor supports higher PDO yields.
+
+\subsection{Pathway Optimization}
+Typical genetic engineering steps include:
+\begin{itemize}
+    \item Overexpressing heterologous \textit{dha} genes.
+    \item Knocking out competing glycerol pathways.
+    \item Balancing promoter strengths and ribosome binding sites.
+\end{itemize}
+
+

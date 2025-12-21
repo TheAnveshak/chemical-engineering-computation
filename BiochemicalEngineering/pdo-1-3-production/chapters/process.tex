@@ -1,0 +1,127 @@
+\chapter{Process design}
+\label{ch:pdo_process}
+
+
+A complete process chapter for producing 1,3-propanediol (
+1,3-PDO) from glycerol: seed-train scale-up (10$\times$ steps), fed-batch scale-up into a bubble-column reactor (geometry and aeration based on Bisgaard), fermentation operating strategy (strain design and staging based on Nakamura, Tang), pH/temperature guidance (Dharmadi), and a literature-informed downstream separation train (Przystałowska)\cite{bisgaardDatabasedDynamicCompartment2022,tangMicrobialConversionGlycerol2009,nakamuraMetabolicEngineeringMicrobial2003,dharmadiAnaerobicFermentationGlycerol2006,przystalowskaBiotechnologicalConversionGlycerol2015}.
+
+\section{Design assumptions}
+\begin{itemize}
+  \item Reactor geometry anchored to Bisgaard: diameter $D = 5.30\ \mathrm{m}$, choose initial liquid height $H = 3D = 3\times 5.30 = 15.9\ \mathrm{m}$ which till the end of process becomes $H = 5D = 5\times 5.30 \approx 26\ \mathrm{m}$\cite{bisgaardDatabasedDynamicCompartment2022}.
+  \item Inoculum policy: target inoculum = 10\% (v/v) of reactor initial liquid (Bisgaard practice for industrial seeding which I am extrapolating as discussed in class by Prof. VGG). 10$\times$ volume steps until the final inoculum is prepared; the last step is adjusted to match the 10\% reactor inoculum volume. \cite{bisgaardDatabasedDynamicCompartment2022}.
+  \item Strain: engineered \textit{E.\ coli} carrying glycerol $\rightarrow$ 1,3-PDO pathway with dhaB (B12-independent when applicable)\cite{nakamuraMetabolicEngineeringMicrobial2003,tangMicrobialConversionGlycerol2009}.
+  \item Feedstock: crude biodiesel glycerol. \cite{przystalowskaBiotechnologicalConversionGlycerol2015}
+\end{itemize}
+
+\section{Detailed calculations}
+Below are explicit calculation steps (formulas and evaluated numbers). keep these in your design chapter for traceability.
+
+\subsection{Reactor volume from geometry}
+Given:
+\[
+D = 5.30\ \mathrm{m},\qquad H = 3D = 3\times 5.30 = 15.9\ \mathrm{m}.
+\]
+Cross-sectional area:
+\[
+A = \pi \left(\frac{D}{2}\right)^2 = \pi\left(\frac{5.30}{2}\right)^2
+     \approx 22.067\ \mathrm{m^2}.
+\]
+Volume:
+\[
+V_{\text{reactor,init}} = A \times H
+    = \pi\left(\frac{D}{2}\right)^2 H
+    = \pi (2.65)^2 \times 15.9.
+     \approx 350.783\ \mathrm{m^3}.
+\] \cite{bisgaardDatabasedDynamicCompartment2022}.
+
+\subsection{Inoculum target (10\% v/v)}
+\[
+V_{\text{inoc}} = 0.10 \times V_{\text{reactor,init}}
+= 0.10 \times 350.783\ \mathrm{m^3}
+\approx 35.0783\ \mathrm{m^3}\approx 35078.3\ \mathrm{L}.
+\]
+
+\subsection{Seed-train (10$\times$ progression)}
+A strict 10$\times$ chain starting from common lab volumes gives:
+\[
+0.1\ \mathrm{L}\to 1\ \mathrm{L}\to 10\ \mathrm{L}\to 100\ \mathrm{L}\to 1000\ \mathrm{L}\to 10000\ \mathrm{L}\to 35078\ \mathrm{L}\ (\text{overshoot}).
+\]
+To hit the exact inoculum target and to avoid the overshppting adjust the last inoculum.
+
+\subsection{Biomass in final inoculum}
+
+Bisgaard reports biomass concentration based on optical density at 550 nm, using the conversion
+\[
+1\ \text{OD}_{550} \equiv 3.0\ \text{g dry weight per L} 
+\]\cite{bisgaardDatabasedDynamicCompartment2022}.
+
+\subsection{Aeration and superficial gas velocity}
+Bisgaard reports representative mixing-test air flow points:
+\[
+Q_{\text{air,ref}} = 4.75\ \text{Nm}^3\ \text{s}^{-1} \quad
+\]\cite{bisgaardDatabasedDynamicCompartment2022}
+
+Convert to hourly volumetric flow:
+
+\[
+Q_{\text{air,ref} (m^3/h)} = 4.75\ \frac{m^3}{s} \times 3600\ \frac{s}{h}
+= 4.75 \times 3600 = 17100\ m^3\ h^{-1}.
+\]
+
+Cross-sectional area (from above) $A \approx 22.067\ \mathrm{m^2}$. Superficial gas velocity:
+\[
+U_{\text{sg}} = \frac{Q_{\text{air,ref}}}{A}
+= \frac{4.75\ \mathrm{m^3/s}}{22.067\ \mathrm{m^2}}
+\approx 0.2153\ \mathrm{m.s^{-1}}.
+\] \cite{bisgaardDatabasedDynamicCompartment2022}.
+
+\section{Seed-train schedule}
+\begin{table}[h!]
+\centering
+\begin{tabular}{l l l}
+\hline
+Step & Volume (L) & Purpose / notes \\
+\hline
+1 & 0.1 & Lab flask inoculum \\
+2 & 1 & intermediate \\
+3 & 10 & intermediate \\
+4 & 100 & intermediate \\
+5 & 1000 & intermediate \\
+6 & 10000 & intermediate \\
+7 & 35078 & Final inoculum (10\% v/v of reactor) \\
+\hline
+\end{tabular}
+\caption{Seed Train Steps}
+\end{table}
+
+\section{Fermentation strategy}
+\begin{enumerate}
+  \item \textbf{Seed phases:} aerobic cultivation (staged, see volumes above). Typical setpoints: T = 30--37 C, pH near 7.0 (control with \ce{NH4OH}) and DO greater than 30\% saturation during biomass build \cite{tangMicrobialConversionGlycerol2009,bisgaardDatabasedDynamicCompartment2022}.
+  \item \textbf{Main reactor fill and growth:} fill the bubble-column to the initial liquid height $H=15.9\ \mathrm{m}$ and inoculate with the prepared inoculum (10\% v/v). Operate an aerobic fed-batch growth phase.\cite{bisgaardDatabasedDynamicCompartment2022}.
+  \item \textbf{Transition to production:} two valid choices depending on the strain:
+    \begin{itemize}
+      \item \emph{Aerobic engineered 1,3-PDO route:} maintain aerobic conditions and feed glycerol (or feed glycerol co-substrate) while operating DO at strain-appropriate setpoint (e.g., DO > 20\%) \cite{nakamuraMetabolicEngineeringMicrobial2003}.
+      \item \emph{Tang two-stage glycerol conversion:} switch from aerobic growth to a production stage by (i) replacing/perfusing medium with glycerol feed, (ii) applying the thermal induction (example: 30$^\circ$C $\to$ 42$^\circ$C in Tang) and (iii) adjusting oxygen to microaerobic values if required by the glycerol pathway regulation \cite{tangMicrobialConversionGlycerol2009}.
+    \end{itemize}
+  \item \textbf{pH control during glycerol conversion:} glycerol fermentation and by-product distribution are pH sensitive; maintain pH in the approximately 6.0--7.0 window \cite{dharmadiAnaerobicFermentationGlycerol2006}.
+\end{enumerate}
+
+
+\section{Feeding strategy}
+\begin{itemize}
+  \item \textbf{Growth:} glucose/dextrose feed (or glycerol if preferred) under DO-based or biomass-growth feedback.
+  \item \textbf{Production:} feed glycerol in a controlled fed-batch profile to avoid glycerol inhibition \cite{dharmadiAnaerobicFermentationGlycerol2006,bisgaardDatabasedDynamicCompartment2022}.
+\end{itemize}
+
+\section{Downstream Train}
+\begin{itemize}
+  \item \textbf{Product/byproducts:} 1,3-PDO (target product) plus byproducts such as acetate, ethanol, succinate and others depending on oxygenation and genetics.\cite{dharmadiAnaerobicFermentationGlycerol2006,przystalowskaBiotechnologicalConversionGlycerol2015,murarkaFermentativeUtilizationGlycerol2008}.
+  \item \textbf{Downstream (recommended staged train):}
+    \begin{enumerate}
+      \item Cell removal: membrane filtration or High Speed Centrifuge.
+      \item Volatile removal: low-temperature distillation/vacuum stripping to remove ethanol and light volatiles.
+      \item Acid/byproduct removal: pH adjustment and liquid-liquid extraction or ion exchange to remove succinate/acetate (reviewed options in Przystałowska) \cite{przystalowskaBiotechnologicalConversionGlycerol2015}.
+      \item PDO concentration/polishing:  evaporation and  distillation to reach commercial purity; final polishing ion exchange.
+    \end{enumerate}
+\end{itemize}
+
