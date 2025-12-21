@@ -61,6 +61,14 @@ The following courses formed the core academic basis for this project:
 These references are cited to establish theoretical grounding and standard practice. All implementation choices, assumptions, and interpretations in the notebook represent an academic exercise and the my independent computational translation of the methodology.
 
 ---
+## For Usage
+
+To use this project, clone or download the repository as-is.
+The CSV files provided for packing performance data must be kept in their original names and directory structure, as they are read directly by the notebook for interpolation and design calculations.
+
+Changing file names or formats will require corresponding updates in the notebook.
+
+---
 
 ## Scope of the model
 
